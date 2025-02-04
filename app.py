@@ -5,8 +5,8 @@ import os
 app = Flask(__name__)
 
 # Configuration
-IMAGE_FOLDER = "/app/images"
-METADATA_FILE = "/app/metadata.json"
+IMAGE_FOLDER = "/app/static/images"
+METADATA_FILE = "/app/static/metadata.json"
 
 # Load metadata
 def load_metadata():

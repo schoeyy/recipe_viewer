@@ -1,0 +1,132 @@
+/* General Page Styling */
+body {
+    background-color: #f3f4f6;
+    padding: 1.25rem;
+}
+
+/* Container */
+.container {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+/* Title */
+.title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+/* Tag Filters */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.tag-container button {
+    padding: 0.75rem;
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.tag-container button:hover {
+    background-color: #d1d5db;
+}
+
+.tag-container button.active {
+    background-color: #10b981;
+    color: white;
+}
+
+/* Recipe Grid */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Recipe Cards */
+.recipe-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    font-family: 'Inter', sans-serif; /* Modern, easy-to-read font */
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Recipe Title */
+.recipe-title {
+    font-size: 1.1rem;
+    font-weight: 500; /* Less bold for readability */
+    margin-top: 0.5rem;
+    color: #333; /* Softer black */
+}
+
+/* Recipe Image */
+.recipe-img {
+    width: 100%;
+    height: 14rem; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images fill space without distortion */
+    border-radius: 0.5rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hidden by default */
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Full-Screen Image */
+.recipe-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* Prevent cropping */
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: rgba(17, 24, 39, 0.8);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+

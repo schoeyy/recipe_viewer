@@ -4,169 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Viewer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg-gray-100 p-5">
-    <div class="max-w-5xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-5">Hello Fresh Recipes</h1>
-        
-        <!-- Tag Filters -->
-        <div id="tag-filters" class="flex flex-wrap gap-2 justify-center mb-4"></div>
-
-        <!-- Responsive Grid -->
-        <div id="recipes" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+    <div class="container">
+        <h1 class="title">Hello Fresh Recipes</h1>
+        <div id="tag-filters" class="tag-container"></div>
+        <div id="recipes" class="recipe-grid"></div>
     </div>
 
-    <!-- Modal -->
-    <div id="recipe-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex justify-center items-center p-4">
-        <div class="relative w-full max-w-4xl flex justify-center items-center">
-            <button onclick="closeModal()" class="absolute top-2 right-4 text-white text-3xl">&times;</button>
-            <img id="recipe-image" class="max-w-full max-h-full object-contain rounded-lg cursor-pointer transition-all">
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button">&times;</button>
+            <img id="recipe-image" class="recipe-image">
         </div>
     </div>
 
-
-    <script>
-        let recipes = [];
-        let activeTag = null; // Stores the currently selected tag
-        let isFrontImage = true; // Track which image is displayed
-        let currentRecipe = null;
-        const imageElement = document.getElementById('recipe-image');
-
-        async function fetchRecipes() {
-            try {
-                const response = await fetch('/api/recipes');
-                recipes = Object.values(await response.json());
-                generateTagFilters(recipes);
-                displayRecipes(recipes);
-            } catch (error) {
-                console.error("Error fetching recipes:", error);
-            }
-        }
-
-        function generateTagFilters(recipes) {
-            const tagContainer = document.getElementById('tag-filters');
-            tagContainer.innerHTML = '';
-
-            const tags = new Set();
-            recipes.forEach(recipe => recipe.tags.forEach(tag => tags.add(tag)));
-
-            tags.forEach(tag => {
-                const btn = document.createElement('button');
-                btn.textContent = tag;
-                btn.classList = "px-3 py-1 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition";
-                btn.onclick = () => toggleTag(tag, btn);
-                tagContainer.appendChild(btn);
-            });
-        }
-
-        function toggleTag(tag, btn) {
-            document.querySelectorAll('#tag-filters button').forEach(button => {
-                button.classList.remove("bg-green-500", "text-white");
-                button.classList.add("bg-gray-200", "hover:bg-gray-300");
-            });
-
-            if (activeTag === tag) {
-                activeTag = null;
-                displayRecipes(recipes);
-            } else {
-                activeTag = tag;
-                btn.classList.remove("bg-gray-200", "hover:bg-gray-300");
-                btn.classList.add("bg-green-500", "text-white");
-                filterRecipes();
-            }
-        }
-
-        function filterRecipes() {
-            if (!activeTag) {
-                displayRecipes(recipes);
-            } else {
-                const filteredRecipes = recipes.filter(recipe =>
-                    recipe.tags.includes(activeTag)
-                );
-                displayRecipes(filteredRecipes);
-            }
-        }
-
-        function displayRecipes(recipes) {
-            const container = document.getElementById('recipes');
-            container.innerHTML = '';
-            
-            recipes.forEach((recipe, index) => {
-                const card = document.createElement('div');
-                card.classList = "bg-white p-4 rounded-lg shadow hover:shadow-lg cursor-pointer h-80 flex flex-col items-center";
-                
-                card.innerHTML = `
-                    <img src="" data-src="${recipe.front}" class="recipe-img w-full h-72 object-cover rounded-lg" loading="lazy">
-                    <h2 class="text-lg font-semibold mt-2 text-center">${recipe.name}</h2>
-                `;
-
-                card.addEventListener('click', () => openModal(recipe));
-                container.appendChild(card);
-            });
-
-            lazyLoadImages();
-        }
-
-        function lazyLoadImages() {
-            const images = document.querySelectorAll(".recipe-img");
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.removeAttribute("data-src");
-                            observer.unobserve(img);
-                        }
-                    });
-                },
-                { rootMargin: "100px 0px", threshold: 0.1 }
-            );
-
-            images.forEach(img => observer.observe(img));
-        }
-
-        function openModal(recipe) {
-            currentRecipe = recipe;
-            isFrontImage = false;
-            updateModal();
-
-            document.getElementById('recipe-modal').classList.remove('hidden');
-
-            imageElement.onclick = () => {
-                isFrontImage = !isFrontImage;
-                updateModal();
-            };
-
-            document.getElementById('recipe-modal').addEventListener('click', function (event) {
-                if (event.target === this) closeModal();
-            });
-
-        }
-
-        function updateModal() {
-            if (!currentRecipe) return;
-
-            imageElement.src = isFrontImage ? currentRecipe.front : currentRecipe.back;
-            
-            // Ensure image uses max width and height for a full-screen experience
-            imageElement.classList.add("w-full", "h-full", "max-w-none", "max-h-none", "object-contain");
-
-            // Ensure it adapts better on mobile
-            if (window.innerWidth < 768) {
-                imageElement.classList.add("rounded-none");
-            } else {
-                imageElement.classList.remove("rounded-none");
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('recipe-modal').classList.add('hidden');
-        }
-
-        fetchRecipes();
-    </script>
+    <script src="{{ url_for('static', filename='js/recipes.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tags.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
