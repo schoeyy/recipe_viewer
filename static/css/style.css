@@ -22,17 +22,22 @@ body {
 /* Tag Filters */
 .tag-container {
     display: flex;
-    gap: 0.5rem;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows tags to wrap if needed */
+    text-align: center;
+    width: 100%;
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 #tag-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-width: 60vw; /* Prevent excessive width */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .tag-button {
