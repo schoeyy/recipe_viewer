@@ -27,8 +27,8 @@ function updateModal() {
     // If back image is undefined, default to the front image
     if (!imageSrc) {
         console.warn(`Missing image for recipe: ${currentRecipe.name}. Defaulting to front.`);
-        imageSrc = currentRecipe.front; // Use front image as fallback
-        isFrontImage = true; // Switch to front if back is missing
+        imageSrc = currentRecipe.front; 
+        isFrontImage = true;
     }
 
     imageElement.src = imageSrc;

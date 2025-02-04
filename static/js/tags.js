@@ -2,16 +2,55 @@ function generateTagFilters(recipes) {
     const tagContainer = document.getElementById('tag-filters');
     tagContainer.innerHTML = '';
 
-    const tags = new Set();
-    recipes.forEach(recipe => recipe.tags.forEach(tag => tags.add(tag)));
+    // Extract unique and sorted tags, then capitalize them properly
+    const tags = [...new Set(recipes.flatMap(recipe => recipe.tags))]
+        .map(capitalizeTag)
+        .sort();
 
-    tags.forEach(tag => {
+    const maxVisibleTags = 10;
+    let isExpanded = false;
+
+    const tagButtons = tags.map(tag => {
         const btn = document.createElement('button');
         btn.textContent = tag;
         btn.classList.add("tag-button");
         btn.addEventListener('click', () => toggleTag(tag, btn));
-        tagContainer.appendChild(btn);
+        return btn;
     });
+
+    // Display only the first set of tags
+    tagButtons.slice(0, maxVisibleTags).forEach(btn => tagContainer.appendChild(btn));
+
+    // Show More / Show Less Button
+    if (tags.length > maxVisibleTags) {
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = "Show More";
+        toggleButton.classList.add("toggle-tags-button");
+
+        toggleButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            tagContainer.innerHTML = ''; 
+
+            // Show all or limited tags based on toggle state
+            if (isExpanded) {
+                tagButtons.forEach(btn => tagContainer.appendChild(btn));
+                toggleButton.textContent = "Show Less";
+            } else {
+                tagButtons.slice(0, maxVisibleTags).forEach(btn => tagContainer.appendChild(btn));
+                toggleButton.textContent = "Show More";
+            }
+
+            tagContainer.appendChild(toggleButton);
+        });
+
+        tagContainer.appendChild(toggleButton);
+    }
+}
+
+function capitalizeTag(tag) {
+    return tag
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase());
 }
 
 function toggleTag(tag, btn) {
@@ -33,7 +72,9 @@ function filterRecipes() {
     if (!activeTag) {
         displayRecipes(recipes);
     } else {
-        const filteredRecipes = recipes.filter(recipe => recipe.tags.includes(activeTag));
+        const filteredRecipes = recipes.filter(recipe => 
+            recipe.tags.map(capitalizeTag).includes(activeTag)
+        );
         displayRecipes(filteredRecipes);
     }
 }

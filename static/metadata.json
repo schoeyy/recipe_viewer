@@ -1,56 +1,134 @@
 {
+    "35": {
+        "name": "Ultimate King Prawn and Chorizo Paella with Parsley, Lemon and Pepper",
+        "front": "/images/recipe_35_front.webp",
+        "back": "/images/recipe_35_rear.webp",
+        "tags": [
+            "paella",
+            "seafood",
+            "prawn",
+            "chorizo",
+            "Spanish",
+            "premium"
+        ],
+        "thumbnail": "/images/recipe_35_thumb.webp"
+    },
     "33": {
         "name": "Monkfish, Bacon and Butternut Squash Risotto",
-        "front": "/images/recipe_33_front.png",
-        "back": "/images/recipe_33_rear.png",
-        "tags": ["risotto", "seafood", "bacon", "premium"]
+        "front": "/images/recipe_33_front.webp",
+        "back": "/images/recipe_33_rear.webp",
+        "tags": [
+            "risotto",
+            "seafood",
+            "bacon",
+            "premium"
+        ],
+        "thumbnail": "/images/recipe_33_thumb.webp"
     },
     "28": {
         "name": "Teriyaki Prawn Poke Style Bowl",
-        "front": "/images/recipe_28_front.png",
-        "back": "/images/recipe_28_rear.png",
-        "tags": ["seafood", "prawn", "Asian", "healthy", "under 650 calories"]
+        "front": "/images/recipe_28_front.webp",
+        "back": "/images/recipe_28_rear.webp",
+        "tags": [
+            "seafood",
+            "prawn",
+            "Asian",
+            "healthy",
+            "under 650 calories"
+        ],
+        "thumbnail": "/images/recipe_28_thumb.webp"
     },
     "23": {
         "name": "Roasted Chermoula Veg and Balsamic Lentils",
-        "front": "/images/recipe_23_front.png",
-        "back": "/images/recipe_23_rear.png",
-        "tags": ["vegetarian", "spicy", "healthy", "under 600 calories"]
+        "front": "/images/recipe_23_front.webp",
+        "back": "/images/recipe_23_rear.webp",
+        "tags": [
+            "vegetarian",
+            "spicy",
+            "healthy",
+            "under 600 calories"
+        ],
+        "thumbnail": "/images/recipe_23_thumb.webp"
     },
     "20": {
         "name": "Black Bean and Sweet Potato Harissa Stew",
-        "front": "/images/recipe_20_front.png",
-        "back": "/images/recipe_20_rear.png",
-        "tags": ["stew", "vegetarian", "spicy", "vegan"]
+        "front": "/images/recipe_20_front.webp",
+        "back": "/images/recipe_20_rear.webp",
+        "tags": [
+            "stew",
+            "vegetarian",
+            "spicy",
+            "vegan"
+        ],
+        "thumbnail": "/images/recipe_20_thumb.webp"
+    },
+    "18B": {
+        "name": "Stovetop Mac & Cheese with Pea Shoot Salad",
+        "front": "/images/recipe_18b_front.webp",
+        "back": "/images/recipe_18b_rear.webp",
+        "tags": [
+            "pasta",
+            "mac & cheese",
+            "quick",
+            "vegetarian option"
+        ],
+        "thumbnail": "/images/recipe_18B_thumb.webp"
     },
     "18A": {
         "name": "Roasted Chipotle Cauliflower Tacos",
-        "front": "/images/recipe_18a_front.png",
-        "back": "/images/recipe_18a_rear.png",
-        "tags": ["vegetarian", "tacos", "spicy", "quick"]
+        "front": "/images/recipe_18a_front.webp",
+        "back": "/images/recipe_18a_rear.webp",
+        "tags": [
+            "vegetarian",
+            "tacos",
+            "spicy",
+            "quick"
+        ],
+        "thumbnail": "/images/recipe_18A_thumb.webp"
     },
     "18": {
         "name": "Creamy Pesto Pasta",
-        "front": "/images/recipe_18_front.png",
-        "back": "/images/recipe_18_rear.png",
-        "tags": ["pasta", "quick", "vegetarian"]
+        "front": "/images/recipe_18_front.webp",
+        "back": "/images/recipe_18_rear.webp",
+        "tags": [
+            "pasta",
+            "quick",
+            "vegetarian"
+        ],
+        "thumbnail": "/images/recipe_18_thumb.webp"
     },
     "2": {
         "name": "Teriyaki Lemongrass Beef",
-        "front": "/images/recipe_2_front.png",
-        "back": "/images/recipe_2_rear.png",
-        "tags": ["beef", "Asian", "teriyaki"]
+        "front": "/images/recipe_2_front.webp",
+        "back": "/images/recipe_2_rear.webp",
+        "tags": [
+            "beef",
+            "Asian",
+            "teriyaki"
+        ],
+        "thumbnail": "/images/recipe_2_thumb.webp"
     },
     "17": {
         "name": "Creamy Green Veg and Pesto Pasta",
-        "front": "/images/recipe_17_front.png",
-        "back": "/images/recipe_17_rear.png",
-        "tags": ["pasta", "vegetarian", "quick"]
+        "front": "/images/recipe_17_front.webp",
+        "back": "/images/recipe_17_rear.webp",
+        "tags": [
+            "pasta",
+            "vegetarian",
+            "quick"
+        ],
+        "thumbnail": "/images/recipe_17_thumb.webp"
     },
     "3A": {
         "name": "Tropical Pineapple and Coconut Pies",
-        "front": "/images/recipe_3a_front.png",
-        "back": "/images/recipe_3a_rear.png",
-        "tags": ["dessert", "vegetarian", "sweet", "tropical"]
+        "front": "/images/recipe_3a_front.webp",
+        "back": "/images/recipe_3a_rear.webp",
+        "tags": [
+            "dessert",
+            "vegetarian",
+            "sweet",
+            "tropical"
+        ],
+        "thumbnail": "/images/recipe_3A_thumb.webp"
     }
 }

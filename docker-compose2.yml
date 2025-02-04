@@ -1,0 +1,12 @@
+services:
+  recipe_viewer:
+    image: recipe_viewer
+    build: .
+    container_name: recipe_viewer
+    ports:
+      - "5000:5000"
+    volumes:
+      - /home/abu/docker/recipe_viewer/images:/app/images
+      - /home/abu/docker/recipe_viewer/metadata.json:/app/metadata.json
+      - /home/abu/docker/recipe_viewer/templates:/app/templates
+    restart: unless-stopped

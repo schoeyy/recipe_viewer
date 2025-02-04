@@ -21,7 +21,7 @@ function displayRecipes(recipes) {
         card.classList.add("recipe-card"); 
 
         card.innerHTML = `
-            <img src="" data-src="${recipe.front}" class="recipe-img lazy-load" loading="lazy">
+            <img src="" data-src="${recipe.thumbnail}" class="recipe-img lazy-load" loading="lazy">
             <h2 class="recipe-title">${recipe.name}</h2>
         `;
 
