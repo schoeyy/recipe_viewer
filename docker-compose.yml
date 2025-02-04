@@ -1,10 +1,14 @@
 services:
-  web:
-    build: .
+  recipe_viewer:
+    image: recipe_viewer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: recipe_viewer
     ports:
       - "5000:5000"
     volumes:
-      - .:/app  # Bind-mount the current directory to /app inside the container
-      - /app/__pycache__/  # Prevent caching from interfering
-    environment:
-      FLASK_ENV: development  # Enables debug mode
+      - /home/abu/docker/recipe_viewer/images:/app/images
+      - /home/abu/docker/recipe_viewer/metadata.json:/app/metadata.json
+      - /home/abu/docker/recipe_viewer/templates:/app/templates
+    restart: unless-stopped

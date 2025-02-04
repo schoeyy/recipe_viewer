@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev  
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  # Bind-mount the current directory to /app inside the container
+      - /app/__pycache__/  # Prevent caching from interfering
+    environment:
+      FLASK_ENV: development  # Enables debug mode
