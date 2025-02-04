@@ -5,11 +5,29 @@
         "back": "/images/recipe_33_rear.png",
         "tags": ["risotto", "seafood", "bacon", "premium"]
     },
+    "28": {
+        "name": "Teriyaki Prawn Poke Style Bowl",
+        "front": "/images/recipe_28_front.png",
+        "back": "/images/recipe_28_rear.png",
+        "tags": ["seafood", "prawn", "Asian", "healthy", "under 650 calories"]
+    },
+    "23": {
+        "name": "Roasted Chermoula Veg and Balsamic Lentils",
+        "front": "/images/recipe_23_front.png",
+        "back": "/images/recipe_23_rear.png",
+        "tags": ["vegetarian", "spicy", "healthy", "under 600 calories"]
+    },
     "20": {
         "name": "Black Bean and Sweet Potato Harissa Stew",
         "front": "/images/recipe_20_front.png",
         "back": "/images/recipe_20_rear.png",
         "tags": ["stew", "vegetarian", "spicy", "vegan"]
+    },
+    "18A": {
+        "name": "Roasted Chipotle Cauliflower Tacos",
+        "front": "/images/recipe_18a_front.png",
+        "back": "/images/recipe_18a_rear.png",
+        "tags": ["vegetarian", "tacos", "spicy", "quick"]
     },
     "18": {
         "name": "Creamy Pesto Pasta",
@@ -28,5 +46,11 @@
         "front": "/images/recipe_17_front.png",
         "back": "/images/recipe_17_rear.png",
         "tags": ["pasta", "vegetarian", "quick"]
+    },
+    "3A": {
+        "name": "Tropical Pineapple and Coconut Pies",
+        "front": "/images/recipe_3a_front.png",
+        "back": "/images/recipe_3a_rear.png",
+        "tags": ["dessert", "vegetarian", "sweet", "tropical"]
     }
 }
